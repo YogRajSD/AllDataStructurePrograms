@@ -1,0 +1,83 @@
+ // Insertion in the Singly Linked List using the Refrenece of the tail Node.
+ 
+ --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+package collections;
+
+import collections.InsertFirst.Node;
+
+public class InsertionAtTail 
+{
+	Node head;
+	Node tail;
+	static class Node
+	{
+		int data;
+		Node next;
+		public Node(int data)
+		{
+			this.data=data;
+			next=null;
+		}
+	}
+	void add(int data)
+	{
+		Node toadd=new Node(data);
+		if(head==null)
+		{
+			head=tail=toadd;
+		}
+		else {
+			Node temp=head;
+			while(temp.next!=null)
+			{
+				temp=temp.next;
+			}
+			temp.next=toadd;
+			tail=toadd;
+		}
+	}
+	void print()
+	{
+		Node temp=head;
+		while(temp!=null)
+		{
+			System.out.println(temp.data);
+			temp=temp.next;
+		}
+	}
+	void addLast(int data)
+	{
+		Node toadd=new Node(data);
+		Node temp=head;
+		if(tail==null)
+		{
+			tail=toadd;
+		}
+		else
+		{
+			while(temp.next!=null)
+			{
+				temp=temp.next;
+			}
+			temp.next=toadd;
+			tail=toadd;
+		}
+	}
+
+	public static void main(String[] args) 
+	{
+		// TODO Auto-generated method stub
+		InsertionAtTail o=new InsertionAtTail();
+		o.add(10);
+		o.add(20);
+		o.add(30);
+		o.add(40);
+		o.add(50);
+		System.out.println("Printing before Adding");
+		o.print();
+		o.addLast(1000);
+		System.out.println("Printing after Adding");
+		o.print();
+	}
+
+}
