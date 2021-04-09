@@ -39,6 +39,23 @@ public class DoublyCircularC
 			tail=toadd;
 		}
 	}
+	void addFirst(int data)
+	{
+		Node toadd=new Node(data);
+		if(head==null)
+		{
+			head=toadd;
+			head.prev=head;
+			head.next=head;
+		}
+		else
+		{
+			tail.next=toadd;
+			toadd.next=head;
+			head.prev=toadd;
+			head=toadd;
+		}
+	}
 	void disply()
 	{
 		Node temp=head;
@@ -53,10 +70,9 @@ public class DoublyCircularC
 		// TODO Auto-generated method stub
 		DoublyCircularC d=new DoublyCircularC();
 		d.create(87);
-		d.create(72);
-		d.create(70);
-		d.create(75);
 		d.create(74);
+		d.disply();
+		d.addFirst(10);
 		d.disply();
 
 	}
