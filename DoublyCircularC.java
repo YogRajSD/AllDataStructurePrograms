@@ -39,21 +39,26 @@ public class DoublyCircularC
 			tail=toadd;
 		}
 	}
-	void addFirst(int data)
+	void addEnd(int data)
 	{
 		Node toadd=new Node(data);
 		if(head==null)
 		{
 			head=toadd;
-			head.prev=head;
-			head.next=head;
+			toadd.prev=head;
+			toadd.next=head;
 		}
 		else
 		{
-			tail.next=toadd;
+			Node temp=head;
+			while(temp.next!=head)
+			{
+				temp=temp.next;
+			}
+			temp.next=toadd;
+			toadd.prev=temp;
 			toadd.next=head;
-			head.prev=toadd;
-			head=toadd;
+			tail=toadd;		
 		}
 	}
 	void disply()
@@ -71,8 +76,7 @@ public class DoublyCircularC
 		DoublyCircularC d=new DoublyCircularC();
 		d.create(87);
 		d.create(74);
-		d.disply();
-		d.addFirst(10);
+		d.addEnd(50);
 		d.disply();
 
 	}
