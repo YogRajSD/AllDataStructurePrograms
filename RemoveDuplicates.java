@@ -1,31 +1,78 @@
+package collections;
 
-package array;
-
-public class RemoveDuplicates
+public class RemoveDuplicates 
 {
-	static void remove(int arr[])
+	Node head;
+	Node tail;
+	class Node
 	{
-		int temp[]=arr;
-		int res=1;
-		temp[0]=arr[0];
-		for(int i=1;i<arr.length;i++)
+		int data;
+		Node next;
+		Node(int data)
 		{
-			if(arr[i]!=temp[res-1])
-			{
-				temp[res]=arr[i];
-				res++;
-			}
-			System.out.println(temp[res]);
+			this.data=data;
+			next=null;
 		}
-//		for(int i=0;i<temp.length;i++)
-//		{
-			
-//		}
 	}
-	public static void main(String[] args) {
+	void add(int data)
+	{
+		Node toadd=new Node(data);
+		if(head==null)
+		{
+			head=tail=toadd;
+		}
+		else
+		{
+			Node temp=head;
+			while(temp.next!=null)
+			{
+				temp=temp.next;
+			}
+			temp.next=toadd;
+			tail=toadd;
+		}
+	}
+	void print()
+	{
+		Node temp=head;
+		while(temp!=null)
+		{
+			System.out.print( " " + temp.data);
+			temp=temp.next;
+		}
+		System.out.println();
+	}
+	void remove()
+	{
+		Node curr=head;
+		Node nextNode=null;
+		while(curr!=null && curr.next!=null)
+		{
+			nextNode=curr.next;
+			if(curr.data==nextNode.data)
+			{
+				curr.next=nextNode.next;
+			}
+			else
+			{
+				curr=curr.next;
+			}
+		}
+		
+	}
+
+	public static void main(String[] args)
+	{
 		// TODO Auto-generated method stub
-		int arr[]= {10,10,20,20,30};
-		remove(arr);
+		RemoveDuplicates rd=new RemoveDuplicates();
+		rd.add(4);
+		rd.add(7);
+		rd.add(7);
+		System.out.println("Printing before removing duplicates");
+		rd.print();
+		rd.remove();
+		System.out.println("Printing after removed duplicates");
+		rd.print();
 
 	}
 
