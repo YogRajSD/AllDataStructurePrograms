@@ -77,20 +77,20 @@ public class SegregreateEvenOdd
 			}
 			curr=curr.next;
 		}
-		// Putting all the even nodes at the head of the linked list.
-		if(EvenHead!=null)
+		// Putting all the odd nodes at the head of the linked list.
+		if(OddHead!=null)
 		{
-			this.head=EvenHead;
+			this.head=OddHead;
 		}
-		// Linking all the odd nodes to even node
-		if(EvenEnd!=null)
-		{
-			EvenEnd.next=OddHead;
-		}
-		// Adding null to the end
+		// Linking all the even nodes to odd node
 		if(OddEnd!=null)
 		{
-			OddEnd.next=null;
+			OddEnd.next=EvenHead;
+		}
+		// Adding null to the end
+		if(EvenEnd!=null)
+		{
+			EvenEnd.next=null;
 		}
 	}
 	public static void main(String[] args)
