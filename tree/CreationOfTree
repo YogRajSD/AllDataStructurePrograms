@@ -1,1 +1,30 @@
+package intro;
 
+//import java.util.*;
+//import java.io.*;
+//import java.lang.*;
+
+class Node  
+{ 
+  int key; 
+  Node left; 
+  Node right; 
+  Node(int k){
+      key=k;
+      left=right=null;
+  }
+}
+
+class Creation 
+{ 
+    
+    public static void main(String args[]) 
+    { 
+        Node root=new Node(10);
+    	root.left=new Node(20);
+    	root.right=new Node(30);
+    	root.left.left=new Node(40); 
+    	System.out.println("Value of the root node is " + root.key);
+		System.out.println("Value of left child of root node is " + root.left.key);
+    } 
+} 
